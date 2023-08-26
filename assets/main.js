@@ -2,11 +2,16 @@ let input = document.getElementById("input_text")
 buttons = document.querySelectorAll("span")
 
 
+
+
 let calBtn = Array.from(buttons)
 let result = ""
 calBtn.forEach(button => {
     button.addEventListener('click', () => {
-        if (button.innerText == "=") {
+        if (input.value.length >= 17 && button.innerText !== "C" && button.innerText !== "DEL" && button.innerText !== "=") {
+            alert("Its a simple calculator so you have a limit of 17 characters")
+        }
+        else if (button.innerText == "=") {
             result = eval(input.value)
             input.value = result
         } else if (button.innerText == "C") {
@@ -24,6 +29,3 @@ calBtn.forEach(button => {
 })
 
 
-// let string = "usman"
-
-// console.log(string.length)
